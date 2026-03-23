@@ -1,0 +1,19 @@
+2026-03-23 15:09:16,990 - INFO - API Key added to environment variables
+2026-03-23 15:09:41,876 - INFO - API Key added to environment variables
+2026-03-23 15:09:41,879 - INFO - VideoExtractor Class Intialized
+2026-03-23 15:09:41,879 - INFO - Processing URL  https://www.youtube.com/watch?v=ImbmSEPo7qI
+2026-03-23 15:09:41,879 - INFO - Extracted video ID : ImbmSEPo7qI
+2026-03-23 15:09:41,880 - INFO - Fetching the metadata
+2026-03-23 15:09:43,039 - INFO - Extracted Metadata sucesfullly..
+2026-03-23 15:09:49,905 - INFO - API Key added to environment variables
+2026-03-23 15:09:49,906 - INFO - VideoExtractor Class Intialized
+2026-03-23 15:09:49,906 - INFO - Processing URL  https://www.youtube.com/watch?v=ImbmSEPo7qI
+2026-03-23 15:09:49,906 - INFO - Extracted video ID : ImbmSEPo7qI
+2026-03-23 15:09:49,907 - INFO - Fetching the metadata
+2026-03-23 15:09:50,943 - INFO - Extracted Metadata sucesfullly..
+2026-03-23 15:09:50,948 - INFO - SEOEngine intialized sucesfully...
+2026-03-23 15:09:51,041 - INFO - OpenAI Client connected
+2026-03-23 15:09:51,041 - INFO - Starting SEO Insights Generation..
+2026-03-23 15:10:06,090 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-23 15:10:06,102 - INFO - RAW Output genrated
+2026-03-23 15:10:06,102 - INFO - SEO Insights Generated sucesfully..
