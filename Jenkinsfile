@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building Docker image...'
-                    dockerImage = docker.build("${DOCKER_HUB_REPO}:${IMAGE_TAG}")
+                    def dockerImage = docker.build("${DOCKER_HUB_REPO}:${IMAGE_TAG}")
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        sed -i 's|image: oogu2020/evolue-seo:.*|image: oogu2020/evolue-seo:${IMAGE_TAG}|' manifests/deployment.yaml
+                    sed -i 's|image: oogu2020/evolue-seo:.*|image: oogu2020/evolue-seo:${IMAGE_TAG}|' manifests/deployment.yaml
                     """ 
                 }
             }
@@ -60,7 +60,7 @@ pipeline {
                         git config --global user.name "cloudguru2023"
                         git add manifests/deployment.yaml
                         git commit -m "Update image tag to ${IMAGE_TAG}"
-                        git push https://${GIT_USER}:${GIT_PASS}@github.com/cloudguru2023/socialmedia_seo_insights_generator.git
+                        git push https://${GIT_USER}:${GIT_PASS}@github.com/cloudguru2023/socialmedia_seo_insights_generator.git HEAD:main
                         """
 
                     }
