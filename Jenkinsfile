@@ -70,13 +70,13 @@ pipeline {
 
         stage('Install Kubectl & ArgoCD CLI Setup') {
             steps {
+                echo 'Install Kubectl & ArgoCD CLI Setup - coming soon'
             }
         }
 
         stage('Apply Kubernetes & Sync App with ArgoCD') {
             steps {
-                script {
-                }
+                echo 'Apply Kubernetes & Sync App with ArgoCD - coming soon'
             }
         }
         
