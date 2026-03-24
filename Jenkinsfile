@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building Docker image...'
-                    def dockerImage = docker.build("${DOCKER_HUB_REPO}:${IMAGE_TAG}")
+                    docker.build("${DOCKER_HUB_REPO}:${IMAGE_TAG}")
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
                 script {
                     echo 'Pushing Docker image to DockerHub...'
                     docker.withRegistry('https://registry.hub.docker.com' , "${DOCKER_HUB_CREDENTIALS_ID}") {
-                    dockerImage.push("${IMAGE_TAG}")
+                        docker.image("${DOCKER_HUB_REPO}:${IMAGE_TAG}").push()
                     }
                 }
             }
