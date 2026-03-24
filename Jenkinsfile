@@ -38,7 +38,9 @@ pipeline {
         stage('Update Deployment YAML with New Tag') {
             steps {
                 script {
-                    sed -i 's|image: oogu2020/evolvue-seo:.*|image: oogu2020/evolvue-seo:${IMAGE_TAG}|' manifests/deployment.yaml
+                    sh """
+                        sed -i 's|image: oogu2020/evolvue-seo:.*|image: oogu2020/evolvue-seo:${IMAGE_TAG}|' manifests/deployment.yaml
+                    """ 
                 }
             }
         }
