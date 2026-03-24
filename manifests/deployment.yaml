@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: llmops-app
-          image: oogu2020/evolue-seo:v1
+          image: oogu2020/evolue-seo:v7
           ports:
             - containerPort: 8501
