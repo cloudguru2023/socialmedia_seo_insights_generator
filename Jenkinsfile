@@ -53,6 +53,13 @@ pipeline {
                             passwordVariable: 'GIT_PASS'
                         )
                     ]) {
+                        sh '''
+                        git config --global user.email "[thecloudguru2023@gmail.com]"
+                        git config --global user.name "cloudguru2023"
+                        git add manifests/deployment.yaml
+                        git commit -m "Update image tag to ${IMAGE_TAG}"
+                        git push https://${GIT_USER}:${GIT_PASS}@github.com/cloudguru2023/socialmedia_seo_insights_generator.git
+                        '''
 
                     }
                 }
