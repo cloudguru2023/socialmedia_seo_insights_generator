@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment {
+        DOCKER_HUB_REPO = "oogu2020/evolue-seo"    
+        DOCKER_HUB_CREDENTIALS_ID = "docker-hub-token"
+        IMAGE_TAG = "v${BUILD_NUMBER}"
+    }
 
     stages {
 
@@ -10,11 +15,11 @@ pipeline {
             }
         }
 
-        /*
         stage('Build Docker Image') {
             steps {
                 script {
                     echo 'Building Docker image...'
+                    dockerImage = docker.build("${DOCKER_HUB_REPO}:${IMAGE_TAG}")
                 }
             }
         }
@@ -23,6 +28,9 @@ pipeline {
             steps {
                 script {
                     echo 'Pushing Docker image to DockerHub...'
+                    docker.withRegistry('https://registry.hub.docker.com' , "${DOCKER_HUB_CREDENTIALS_ID}") {
+                    dockerImage.push("${IMAGE_TAG}")
+                    }
                 }
             }
         }
@@ -30,6 +38,7 @@ pipeline {
         stage('Update Deployment YAML with New Tag') {
             steps {
                 script {
+                    sed -i 's|image: oogu2020/evolvue-seo:.*|image: oogu2020/evolvue-seo:${IMAGE_TAG}|' manifests/deployment.yaml
                 }
             }
         }
@@ -61,7 +70,7 @@ pipeline {
                 }
             }
         }
-        */
+        
 
     }
 }
